@@ -1,0 +1,69 @@
+Base types
+    Strings
+    Chars
+    Truthy vs Falsey
+    Doubles
+    BigInt
+    Floats
+
+Macros
+    unquote
+
+Var metadata
+
+IO
+    Slurp
+    Spit
+    Environment variables
+    Stdin/stdout
+
+Exception Handling
+
+Java Interop
+
+Regex
+
+Clojure idioms
+    inc/dec
+    pos?/neg?
+    even?/odd?
+    if-let
+    when-not
+    when then seq
+
+Concurrency
+    core.async
+
+Useful built-ins
+    Thread macros
+
+Useful 3rd party libraries
+
+Project management
+    Leiningen
+    Namespaces
+        Vars
+    Tests
+    Maven
+
+AOT compilation
+
+Collections
+    Lists vs vectors vs maps
+
+Sequences
+
+Laziness
+    map
+    lazy-seq
+
+Immutability - what does it mean
+
+map vs defrecord vs deftype
+
+Protocols
+    reify
+
+Multimethod
+
+Transducers?
