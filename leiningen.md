@@ -44,7 +44,7 @@ your-app-name
 Key things that you'll have to interact with are:
 * src: this is where you put all your Clojure source files.
 * test: all your tests go in here.
-* project.clj: project metadata lives here.
+* project.clj: project meta-data live here.
 
 #### project.clj
 Lets take a look at project.clj in more detail, I've added
@@ -52,7 +52,7 @@ comments to provide a quick description of what each field means.
 
 ~~~clojure
 (defproject your-app-name "0.1.0-SNAPSHOT"
-  ;; Project metadata that you can set yourself.
+  ;; Project meta-data that you can set yourself.
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -104,6 +104,8 @@ Lets open this file in an editor. I've again added comments describing the file:
 ;; The namespace for this file. You'll notice this is the same namespace
 ;; specified in our project.clj.
 (ns your-app-name.core
+  ;; This indicates that we should generate a .class file for this namespace
+  ;; when it is compiled.
   (:gen-class))
 
 ;; The main function, this is what will be executed when we run the project.
