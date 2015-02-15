@@ -5,14 +5,14 @@
 ### Leiningen at a high level
 
 Leiningen works with the idea of projects, a project is simply a bunch
-of Clojure source files, with some meta-data associated with them.
+of Clojure source files with some meta-data associated with them.
 The meta-data is stored inside a file called project.clj at the project root.
 These meta-data can be configured to set various things such as:
 
-* Project name/description
-* Project dependencies
-* Clojure version the app runs on
-* Where source files are located
+* project name/description
+* project dependencies
+* clojure version the app runs on
+* where source files are located
 
 ### Creating a project
 
