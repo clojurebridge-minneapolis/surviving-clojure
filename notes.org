@@ -1,0 +1,116 @@
+* Clojure: Survival Kit
+** Scope / Plan
+   * Overview of the language for an audience familiar with programming
+   * Document organized in 3 sections:
+     * Craft: talk about the tools and what kind of experience is programming in Clojure
+     * Brick laying: talk about the fundamental concepts of the language and how to use them.
+     * Architecture: focuses on the concepts for large-scale system programming
+** Open Issues
+*** TODO Should we put this document in an executable Clojure file?
+*** TODO I think an example in brick laying and architecture would help.
+**** Provide a concrete example of the most used features of Clojure.
+**** Give hints into how to design programs with Clojure.
+**** That is what is really important, people can pick-up the details in reference documents.
+**** If time is a constraint, limit to brick laying exercise since it is the easiest and most common.
+***** See [[https://aphyr.com/posts/312-clojure-from-the-ground-up-modeling][Kyle's Rocket example]] for inspiration
+** Introduction
+*** Installation
+    * Java
+    * Leiningen
+**** REPL: Read Evaluate Print Loop
+     * Dynamic programming environment
+       * instant feedback on your programs
+       * almost everything can be redefined while the program is running
+       * These make programming more flexible and productive.
+     * find-doc
+     * (.printStacktrace *e)
+**** Leiningen
+***** Project
+***** Namespaces
+**** Debugging
+**** Infrastructure
+***** Projects
+***** Namespaces
+***** Testing
+** Brick Laying
+*** Data
+**** Nil
+**** Truthiness
+     * Every value is `true` to `if`, except `false` and `nil`.
+**** Primitive Data Types
+***** Nil
+***** Boolean
+***** Symbols
+***** Numbers
+      Might not need to go into the details of each type of numbers.
+****** Integers
+****** Floating-point Numbers
+****** Rationals
+***** Keywords
+***** Strings
+***** Characters
+**** Composite Data Types
+     Use those instead of defining your own class with a collection of getters/setters.
+***** Collections
+****** Lists
+****** Vectors
+***** Maps
+***** Sets
+***** Sequence Interface
+*** Verbs
+**** Function calls
+**** Function definitions
+***** fn
+****** multi-arity
+***** defn
+***** #()
+**** Control structures
+***** Scoping
+****** vars / def
+****** let / blocks
+***** Recursion
+***** Loops
+**** Vectors and Maps are verbs too
+*** Immutability
+    * Increase locality -> make your code easier to understand
+*** Java interroperability
+    * 2 faces of Clojure: functional programming & "host symbiosis"
+      * Java is a practical platform: mature, fast, widely deployed
+    * You can use Java libraries directly in your Clojure projects
+    * Clojure programmers do this every day.
+    * Accessing static class members
+    * Instantiate
+    * Method calls
+    * Setters
+    * .. macro
+    * doto
+    * reify
+    * deftype
+*** Destructuring
+**** With a vector
+**** With a map
+*** Mutability
+    * See "Threading in Clojure"
+** Architecture
+*** Multi-methods
+*** Protocols
+*** Macros
+** The Craft
+** Gotchas
+*** Laziness
+**** doseq
+*** (Boolean. "false") is true. Use (Boolean/valueOf "false") instead.
+** Conclusion
+   * The ideas behind Clojure are even more important than the language itself. Don't hesitate to steal!
+   * Beginner's mind
+     * Don't try to force your model of programming to the language.
+     * Clojure is committed to dynamic systems
+     * What is great with Clojure is that it gets obvious very quickly when you're misusing it.
+       * Good Clojure programs are concise.
+   * You still need to design your programs (decomposition, uniform interfaces...)
+   * What we didn't talke about:
+     * core.async
+     * transducers
+** References
+   * [[https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome][Kyle Kingsbury: Clojure from the ground up]]
+   * Michael Fogus, Chris Houser: The Joy of Clojure
