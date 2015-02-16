@@ -6,7 +6,7 @@ Clojure programmers use Java libraries every day. The interoperability is seamle
 
 ## Example
 
-```
+```Clojure
 (import '(javax.swing JFrame JLabel JTextField JButton)
         '(java.awt.event ActionListener)
         '(java.awt GridLayout))

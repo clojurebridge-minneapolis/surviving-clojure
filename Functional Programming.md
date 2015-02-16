@@ -41,7 +41,7 @@ The example shows 3 different implementations:
 2. Using closures
 3. Using "compiled" functions.
 
-```
+```clojure
 ;; First, we have a few functions used by the 3 implementations
 
 (defn network
