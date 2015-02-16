@@ -12,33 +12,23 @@ Finally, the last part will present some of the tools to manage Clojure projects
 
 ## Brick Laying
 
-### [Data](Data.md)
-
-### [Verbs](Verbs.md)
-
-### [Java Interoperability](Java Interoperability.md)
-
-### [Mutability](Mutability.md)
-
-We should be talking here about mutability and the great support for concurrency that Clojure provides. But this topic is covered by the other session, Threading in Clojure.
-
-### [Example](Brick Laying - Example.md)
+* [Data](Data.md)
+* [Verbs](Verbs.md)
+* [Java Interoperability](Java Interoperability.md)
+* [Mutability](Mutability.md)
+* [Example](Brick Laying - Example.md)
 
 ## Architecture
 
-### [First-class Functions](First-class Functions.md)
+* [First-Class Functions](First-Class Functions.md)
+* [Polymorphism](Polymorphism.md)
+* [Macros](Macros.md)
+* [Example](Architecture - Example.md)
 
-### [Polymorphism](Polymorphism.md)
+## Tools
 
-### [Macros](Macros.md)
-
-### [Example](Architecture - Example.md)
-
-## [Tools](Tools.md)
-
-### [Leiningen](Leiningen.md)
-
-### [The Clojure Namespace](Clojure Namespace.md)
+* [Leiningen](leiningen.md)
+* [The Clojure Namespace](Clojure Namespace.md)
 
 ## Links
 
