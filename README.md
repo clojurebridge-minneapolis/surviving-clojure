@@ -19,5 +19,5 @@ This document is composed of 3 parts. The first part focuses on programming with
 ## Environment
 
 * [Namespaces](Namespaces.md)
-* [Leiningen](Leiningen.md)
+* [Leiningen](leiningen.md)
 * [The Clojure Namespace](Clojure Namespace.md)
