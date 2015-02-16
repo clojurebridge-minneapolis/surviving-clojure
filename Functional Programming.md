@@ -1,5 +1,7 @@
 # Functional Programming and Immutability
 
+TODO: Don't make this page a reference of core clojure functions. The goal of this section is to show how to write functional programs with immutable data in Clojure.
+
 ## Functions
 
 In functional programming, we build programs by writing functions that return values instead of using side-effects. Clojure progammers write the most part of their programs in a purely functional style and isolate state management in a few places using the concurrency mechanisms presented in the other session "Threading in Clojure".
@@ -12,12 +14,8 @@ This section presents the functions and control structures in Clojure.
 (fn double [x]
   (* 2 x))
 
-#(* 2 %)
-
 (defn double [x]
   (* 2 x))
-
-(def double #(* 2 %))
 ```
 
 ## Control Structures

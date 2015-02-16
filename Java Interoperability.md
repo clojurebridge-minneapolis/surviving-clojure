@@ -33,6 +33,6 @@ Clojure programmers use Java libraries every day. The interoperability is seamle
 (celsius)
 ```
 
-[Source](http://clojure.org/jvm_hosted)
+[Source: clojure.org](http://clojure.org/jvm_hosted)
 
 TODO: Point out the different features: instantiation, method call... and complete with what is not in the example.

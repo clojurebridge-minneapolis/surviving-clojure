@@ -24,7 +24,7 @@ Generic form of polymorphism.
 -> :fight
 ```
 
-[Source](http://clojure.org/runtime_polymorphism)
+[Source: clojure.org](http://clojure.org/runtime_polymorphism)
 
 ## Protocols
 
