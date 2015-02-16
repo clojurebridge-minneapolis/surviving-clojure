@@ -2,43 +2,38 @@
 
 ## Introduction
 
-This document is composed of 3 parts.
-
-The first part, brick laying, focuses on programming with Clojure in the small: the primitive and composite data types of the language, the functional style of programming, immutability, and the Java interoperability.
+This document is composed of 3 parts. The first part focuses on programming with Clojure in the small: the dynamic aspect of Clojure and the REPL, the functional style of programming and immutability, and the Java interoperability.
 
 The second part, architecture, presents the concepts provided by Clojure to organize large programs: first-class functions, polymorphism, and macros.
 
 Finally, the last part will present some of the tools to manage Clojure projects.
 
-## Brick Laying
+## Programming in the Small
 
-* [Data](Data.md)
-* [Verbs](Verbs.md)
+* [Clojure is Dynamic](Clojure is Dynamic.md)
+* [Functional Programming and Immutability](Functional Programming and Immutability.md)
 * [Java Interoperability](Java Interoperability.md)
 * [Mutability](Mutability.md)
-* [Example](Brick Laying - Example.md)
 
-## Architecture
+## Programming in the Large
 
-* [First-Class Functions](First-Class Functions.md)
 * [Polymorphism](Polymorphism.md)
 * [Macros](Macros.md)
-* [Example](Architecture - Example.md)
 
-## Tools
+## Environment
 
-* [Leiningen](leiningen.md)
+* [Namespaces](Namespaces.md)
+* [Leiningen](Leiningen.md)
 * [The Clojure Namespace](Clojure Namespace.md)
 
 ## Links
 
 ### References
 
+* [Clojure.org](http://clojure.org/)
 * [ClojureDocs Quickref](https://clojuredocs.org/quickref)
 
-### Beginner Level
-
-### Master Level
+### Books
 
 * [The Joy of Clojure](http://www.joyofclojure.com/)
 * [On Lisp](http://www.paulgraham.com/onlisp.html)
