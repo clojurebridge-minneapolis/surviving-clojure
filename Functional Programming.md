@@ -31,7 +31,9 @@ We say that functions are first-class because they can be used as any other valu
 
 ## Example
 
-This example is taken from Chapter 6 of "On Lisp" by Paul Graham. It implements the game of twenty questions. The computer tries to guess what you are thinking about in less than 20 questions.
+This example is taken from Chapter 6 of "On Lisp" by Paul Graham. It implements the game of twenty questions. The computer tries to guess what you are thinking about in less than 20 yes/no questions.
+
+We represent the game in the computer as a network of questions. The branch nodes contaisn a question and pointers to other nodes depending on the answer the user gives. The leaf nodes just contain the guess.
 
 The example shows 3 different implementations:
 
@@ -42,7 +44,15 @@ The example shows 3 different implementations:
 ```
 ;; First, we have a few functions used by the 3 implementations
 
-(defn network [make-node]
+(defn network
+  "Create a new network for the given node constructor.
+
+  A network is represented as a map associating the name of the
+  node to its contents and the pointers to the other yes, no nodes.
+
+  Use `add-node` to add nodes to the network. The network will
+  instantiate each node using the constructor passed here."
+  [make-node]
   (with-meta {}
     {:make-node make-node}))
 
@@ -50,7 +60,9 @@ The example shows 3 different implementations:
   (assoc network
     name ((:make-node (meta network)) contents yes no)))
 
-(defn test-network [make-node]
+(defn test-network
+  "Build a network to test the program using the given node constructor."
+  [make-node]
   (-> (network make-node)
       (add-node :people   "Is the person a man?" :male     :female)
       (add-node :male     "Is he living?"        :liveman  :deadman)
@@ -59,12 +71,15 @@ The example shows 3 different implementations:
       (add-node :coin     "Is the coin a penny?" :penny    :coins)
       (add-node :penny    :lincoln)))
 
-;; 1. Data + Function
+;; 1. Data + Function (Interpreter)
 
-(defrecord Node [contents yes no])
+(defn make-node [contents yes no]
+  {:contents contents
+   :yes yes
+   :no no})
 
 (def network-1
-  (test-network ->Node))
+  (test-network make-node))
 
 (defn run-node [network node-name]
   (when-let [{:keys [contents yes no]} (network node-name)]
@@ -91,7 +106,10 @@ The example shows 3 different implementations:
 
 ((network-2 :people) network-2)
 
-;; 3. "Compiled" function
+;; It is interesting to note here how we need to pass the state
+;; around (`network` argument) because we don't maintain state.
+
+;; 3. Data + Function (Compiler)
 
 (defn compile-net [network node-name]
   (when-let [{:keys [contents yes no]} (network node-name)]
