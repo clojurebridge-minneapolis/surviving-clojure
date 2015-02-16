@@ -5,33 +5,6 @@
      * Craft: talk about the tools and what kind of experience is programming in Clojure
      * Brick laying: talk about the fundamental concepts of the language and how to use them.
      * Architecture: focuses on the concepts for large-scale system programming
-** Open Issues
-*** TODO Should we put this document in an executable Clojure file?
-*** TODO I think an example in brick laying and architecture would help.
-**** Provide a concrete example of the most used features of Clojure.
-**** Give hints into how to design programs with Clojure.
-**** That is what is really important, people can pick-up the details in reference documents.
-**** If time is a constraint, limit to brick laying exercise since it is the easiest and most common.
-***** See [[https://aphyr.com/posts/312-clojure-from-the-ground-up-modeling][Kyle's Rocket example]] for inspiration
-** Introduction
-*** Installation
-    * Java
-    * Leiningen
-**** REPL: Read Evaluate Print Loop
-     * Dynamic programming environment
-       * instant feedback on your programs
-       * almost everything can be redefined while the program is running
-       * These make programming more flexible and productive.
-     * find-doc
-     * (.printStacktrace *e)
-**** Leiningen
-***** Project
-***** Namespaces
-**** Debugging
-**** Infrastructure
-***** Projects
-***** Namespaces
-***** Testing
 ** Brick Laying
 *** Data
 **** Nil
@@ -68,11 +41,20 @@
 ***** Scoping
 ****** vars / def
 ****** let / blocks
-***** Recursion
-***** Loops
-**** Vectors and Maps are verbs too
+***** Recursion/Loops
+***** Laziness
+****** Sequences are lazy in Clojure
+       (map (fn [] (println %) (inc %)) (range 10))
+       will not print anything
+******* doall/doseq
+******* Vectors and Maps are verbs too
+****** lazy-seq
+**** filter/map/reduce
 *** Immutability
-    * Increase locality -> make your code easier to understand
+    * An data structure is immutable if it cannot be changed after it has been created.
+    * But the point of a data structure is to modify it as the program runs.
+    * How do you program with immutable data structure?
+    * Huge advantage for concurrency.
 *** Java interroperability
     * 2 faces of Clojure: functional programming & "host symbiosis"
       * Java is a practical platform: mature, fast, widely deployed
@@ -91,14 +73,30 @@
 **** With a map
 *** Mutability
     * See "Threading in Clojure"
+*** Misc
+**** :pre/:post conditions
+**** metadata
 ** Architecture
+*** Higher-order functions
+**** A Clojure functions can be passed as an argument or returned by another function
+**** Popular higher-order functions
+***** comp
+****** (def third (comp first rest rest))
+***** partial
+****** (def double (partial * 2))
+***** complement
+****** (filter (complement nil?) coll)
+***** memoize
+**** Short example with a parser combinator to demonstrate the power of higher-order functions
+*** Closures
+**** A function that closes over its environment.
+**** TODO Find interesting example
 *** Multi-methods
 *** Protocols
 *** Macros
-** The Craft
-** Gotchas
-*** Laziness
-**** doseq
+** Gotchas / Idioms
+*** when-let / if-let
+
 *** (Boolean. "false") is true. Use (Boolean/valueOf "false") instead.
 ** Conclusion
    * The ideas behind Clojure are even more important than the language itself. Don't hesitate to steal!
