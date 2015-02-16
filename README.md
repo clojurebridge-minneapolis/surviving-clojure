@@ -9,15 +9,14 @@ This document is composed of 3 parts. The first part focuses on programming with
 * [Clojure is Dynamic](Clojure is Dynamic.md)
 * [Functional Programming and Immutability](Functional Programming.md)
 * [Java Interoperability](Java Interoperability.md)
-* Mutability (This topic is covered in "Threading in Clojure".)
 
 ## Programming in the Large
 
 * [Polymorphism](Polymorphism.md)
 * [Macros](Macros.md)
+* Mutation and Concurrency (This topic is covered in "Threading in Clojure".)
 
-## Environment
+## Tools and Documentation
 
-* [Namespaces](Namespaces.md)
 * [Leiningen](leiningen.md)
 * [The Clojure Namespace](Clojure Namespace.md)

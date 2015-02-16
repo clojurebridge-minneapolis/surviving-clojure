@@ -34,4 +34,4 @@ See http://clojure.org/protocols
 
 ## Java Interfaces
 
-See `proxy` in [Java Interoperability](Java Interoperability.md).
+See https://clojuredocs.org/clojure.core/proxy

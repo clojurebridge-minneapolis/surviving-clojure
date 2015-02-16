@@ -4,6 +4,8 @@ Clojure is a very practical language. The integration with the host platform has
 
 Clojure programmers use Java libraries every day. The interoperability is seamless.
 
+## Example
+
 ```
 (import '(javax.swing JFrame JLabel JTextField JButton)
         '(java.awt.event ActionListener)
@@ -35,4 +37,12 @@ Clojure programmers use Java libraries every day. The interoperability is seamle
 
 [Source: clojure.org](http://clojure.org/jvm_hosted)
 
-TODO: Point out the different features: instantiation, method call... and complete with what is not in the example.
+## Features
+
+The example above illustrates how to:
+
+* import Java classes in the current namespace: `(import ...)`
+* instantiate a Java class: `(JFrame. "Celsius Converter")`
+* call a Java method: `(.addActionListener convert-button <args>)`
+* how to realize an interface: `(reify ActionListener (actionPerformed [_ evt] ...))`
+* how to chain method calls: `(doto frame (.setLayout ...) ...)`
