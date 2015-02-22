@@ -4,6 +4,95 @@ Clojure is a very practical language. The integration with the host platform has
 
 Clojure programmers use Java libraries every day. The interoperability is seamless.
 
+Lets open up a REPL to take a look at this.
+
+```
+$ lein repl
+```
+
+## Calling methods on Java objects
+
+Calling a method on a Java object is easy, it follows the following format:
+
+`(.methodName object *args)`
+
+Since Clojure strings are actually just Java strings we can call all the normal Java methods on them.
+
+```
+user=> (.toLowerCase "I LIKE SHOUTING")
+"i like shouting"
+```
+
+If we want to be able to look at what members Java objects have
+we can do the following.
+
+```
+user=> (use 'clojure.reflect 'clojure.pprint)
+nil
+user=> (pprint (reflect "string"))
+```
+
+TODO: Do we need the following section? Describe more betterer.
+
+```
+user=> (bean "foo")
+{:empty false, :class java.lang.String, :bytes #<byte[] [B@28df6d13>}
+user=> (bean 34)
+{:class java.lang.Long}
+user=> (bean "10.23")
+{:empty false, :class java.lang.String, :bytes #<byte[] [B@30ef19d4>}
+user=> (bean 10.23)
+{:naN false, :infinite false, :class java.lang.Double}
+```
+
+This will pretty print all the methods on the string object.
+
+## Static methods
+
+Static methods can be called like `(JavaClassName/staticMethod *args)`.
+
+```
+user=> (Math/cos 34)
+-0.8485702747846052
+```
+
+## Creating Java objects
+
+New Java objects can be created in Clojure in two different ways.
+
+`(new JavaClassName *args)` or `(JavaClassName. *args)`
+
+At our REPL lets create a new instance of a Date object using the
+second method of creating new instances.
+
+```
+user=> (import java.util.Date)
+java.util.Date
+user=> (Date.)
+#inst "2015-02-22T18:21:51.656-00:00"
+```
+
+Lets explicitly invoke the toString method on a new Date object.
+
+```
+user=> (def currentTime (Date.))
+#'user/currentTime
+user=> (.toString currentTime)
+"Sun Feb 22 12:31:23 CST 2015"
+```
+
+## Convenience functions/macros
+
+Clojure provides the `doto` macro which allows us to perform multiple method
+calls more succinctly 
+
+```
+user=> (doto (new java.util.HashMap) (.put "a" 1) (.put "b" 2))
+{"b" 2, "a" 1}
+```
+
+TODO: Is the following section useful?
+
 ## Example
 
 ```Clojure
