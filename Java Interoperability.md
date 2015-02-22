@@ -34,19 +34,6 @@ user=> (pprint (reflect "string"))
 
 This will pretty print all the methods on the string object.
 
-TODO: Do we need the following section? Describe more betterer.
-
-```
-user=> (bean "foo")
-{:empty false, :class java.lang.String, :bytes #<byte[] [B@28df6d13>}
-user=> (bean 34)
-{:class java.lang.Long}
-user=> (bean "10.23")
-{:empty false, :class java.lang.String, :bytes #<byte[] [B@30ef19d4>}
-user=> (bean 10.23)
-{:naN false, :infinite false, :class java.lang.Double}
-```
-
 ## Static methods
 
 Static methods can be called like `(JavaClassName/staticMethod *args)`.
@@ -87,13 +74,16 @@ Clojure provides the `doto` macro which allows us to perform multiple method
 calls more succinctly 
 
 ```
-user=> (doto (new java.util.HashMap) (.put "a" 1) (.put "b" 2))
-{"b" 2, "a" 1}
+user=> (import java.util.HashMap)
+java.util.HashMap
+user=> (doto (HashMap.) (.put "red" 1) (.put "blue" 2))
+{"red" 1, "blue" 2}
 ```
 
-TODO: Is the following section useful?
+## Comprehensive example
 
-## Example
+Lets tie everything together and take a look at some
+code that interacts with swing and awt.
 
 ```Clojure
 (import '(javax.swing JFrame JLabel JTextField JButton)
