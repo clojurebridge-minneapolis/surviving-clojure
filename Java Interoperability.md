@@ -116,8 +116,6 @@ code that interacts with swing and awt.
 
 [Source: clojure.org](http://clojure.org/jvm_hosted)
 
-## Features
-
 The example above illustrates how to:
 
 * import Java classes in the current namespace: `(import ...)`
