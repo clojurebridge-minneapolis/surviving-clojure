@@ -46,6 +46,17 @@ Key things that you'll have to interact with are:
 * test: all your tests go in here.
 * project.clj: project meta-data live here.
 
+For additional fun, try making new leiningen projects based on different
+templates and see how they differ from each other. Try looking at some of
+these:
+
+```
+$ lein new compojure [app-name]
+$ lein new compojure-app [app-name]
+$ lein new lein-droid [app-name]
+$ lein new [library-name]
+```
+
 #### project.clj
 Lets take a look at project.clj in more detail, I've added
 comments to provide a quick description of what each field means.
@@ -197,9 +208,7 @@ Macro
 nil
 ```
 
-##### Using our included library
-
-We can also now use the library we added to our project.clj file.
+We can also use the http client library we added to our project.clj file.
 
 ```
 your-app-name.core=> (require '[clj-http.client :as client])
