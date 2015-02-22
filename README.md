@@ -20,3 +20,9 @@ This document is composed of 3 parts. The first part focuses on programming with
 
 * [Leiningen](leiningen.md)
 * [The Clojure Namespace](Clojure Namespace.md)
+
+## Copyright and License
+
+Copyright © 2015 Brian Dawn
+
+Licensed under the [MIT](http://opensource.org/licenses/MIT) [LICENSE](LICENSE)
