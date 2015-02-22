@@ -32,6 +32,8 @@ nil
 user=> (pprint (reflect "string"))
 ```
 
+This will pretty print all the methods on the string object.
+
 TODO: Do we need the following section? Describe more betterer.
 
 ```
@@ -44,8 +46,6 @@ user=> (bean "10.23")
 user=> (bean 10.23)
 {:naN false, :infinite false, :class java.lang.Double}
 ```
-
-This will pretty print all the methods on the string object.
 
 ## Static methods
 
