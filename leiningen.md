@@ -17,7 +17,7 @@ These meta-data can be configured to set various things such as:
 ### Creating a project
 
 When creating a new project Leiningen lets us pick several from pre-configured
-types of projects. Creating a base Clojure project is as simple as doing the following:
+project templates. Creating a base Clojure project is as simple as doing the following:
 
 `$ lein new app your-app-name`
 
@@ -182,7 +182,6 @@ Now we can use PI.
 your-app-name.core=> PI
 3.14
 ```
-
 Clojure provides a lot of functions aimed at working inside the REPL.
 
 Lets take a look at doc, doc will display the doc-string for the var passed in. Lets use
@@ -198,6 +197,18 @@ Macro
 nil
 ```
 
+##### Using our included library
+
+We can also now use the library we added to our project.clj file.
+
+```
+your-app-name.core=> (require '[clj-http.client :as client])
+nil
+your-app-name.core=> (client/get "http://www.google.com")
+```
+
+You should see an HTTP response.
+
 ### Writing/Running tests
 
 Tests are located in the test directory. Leiningen created a sample test for us at:
@@ -209,7 +220,7 @@ Lets take a look at that file, I've again added comments describing things:
 ~~~clojure
 ;; The namespace of this file.
 (ns your-app-name.core-test
-  ;; We're importing Clojure test functions and our core.clj file
+  ;; We're importing Clojure test functions and our core.clj file.
   (:require [clojure.test :refer :all]
             [your-app-name.core :refer :all]))
 
@@ -243,5 +254,3 @@ Ran 1 tests containing 1 assertions.
 1 failures, 0 errors.
 Tests failed.
 ```
-
-
