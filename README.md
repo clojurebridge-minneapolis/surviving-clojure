@@ -18,7 +18,7 @@ This document is composed of 3 parts. The first part focuses on programming with
 
 ## Tools and Documentation
 
-* [Leiningen](leiningen.md)
+* [Leiningen](Leiningen.md)
 * [The Clojure Namespace](Clojure Namespace.md)
 
 ## Copyright and License
