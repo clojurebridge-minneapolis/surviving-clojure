@@ -45,12 +45,17 @@ This example is taken from Chapter 6 of ["On Lisp" by Paul Graham](http://www.pa
   []
   {})
 
+(defn make-node
+  "Make a new node."
+  [contents yes no]
+  {:contents contents
+   :yes      yes
+   :no       no})
+
 (defn add-node
   "Add a new node to the network under the given name."
-  [network name contents yes no]
-  (assoc network name {:contents contents
-                       :yes      yes
-                       :no       no}))
+  [network name contents & [yes no]]
+  (assoc network name (make-node contents yes no)))
 
 (defn test-network
   "Build a network to test the program."
