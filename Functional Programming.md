@@ -73,3 +73,5 @@ We represent the game in the computer as a network of questions. The branch node
 
 (run (test-network) :people)
 ```
+
+In the exploration session later Today you can try to represent a network with a closure or compile the map into a function.
