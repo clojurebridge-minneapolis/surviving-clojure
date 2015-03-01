@@ -31,9 +31,9 @@ We say that functions are first-class because they can be used as any other valu
 
 ## Example
 
-This example is taken from Chapter 6 of "On Lisp" by Paul Graham. It implements the game of twenty questions. The computer tries to guess what you are thinking about in less than 20 yes/no questions.
+This example is taken from Chapter 6 of ["On Lisp" by Paul Graham](http://www.paulgraham.com/onlisptext.html).
 
-We represent the game in the computer as a network of questions. The branch nodes contain a question and pointers to other nodes depending on the answer the user gives. The leaf nodes just contain the guess.
+> As an example, we will use about the simplest application possible: one of those programs that play twenty questions. Our network will be a binary tree. Each non-leaf node will contain a yes/no question, and depending on the answer to the question, the traversal will continue down the left or right subtree. Leaf nodes will contain return values. When the traversal reaches a leaf node, its value will be returned as the value of the traversal. A session with this program might look as in Figure 6.1.
 
 ```clojure
 
@@ -52,14 +52,6 @@ We represent the game in the computer as a network of questions. The branch node
                        :yes      yes
                        :no       no}))
 
-(defn run [network name]
-  (when-let [{:keys [contents yes no]} (network name)]
-    (if yes
-      (do
-        (println contents)
-        (run network (if (= "y" (read-line)) yes no)))
-      contents)))
-
 (defn test-network
   "Build a network to test the program."
   []
@@ -71,7 +63,17 @@ We represent the game in the computer as a network of questions. The branch node
       (add-node :coin     "Is the coin a penny?" :penny    :coins)
       (add-node :penny    :lincoln)))
 
+(defn run [network name]
+  (when-let [{:keys [contents yes no]} (network name)]
+    (if yes
+      (do
+        (println contents)
+        (run network (if (= "y" (read-line)) yes no)))
+      contents)))
+
 (run (test-network) :people)
 ```
 
-In the exploration session later Today you can try to represent a network with a closure or compile the map into a function.
+Notice how our program represent data using Clojure immutable data structures instead of creating new "classes". We want to take advantage of all the Clojure core functions as well as the nice syntax to write concise programs.
+
+We've been implementing our program in a traditional approach: data structure + function. Later today, during the exploration session, you will have the possibility to use closures to represent the network, briniging several advantages in clarity and performance.
