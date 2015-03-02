@@ -86,23 +86,6 @@ comments to provide a quick description of what each field means.
   :profiles {:uberjar {:aot :all}})
 ~~~
 
-##### Adding a dependency
-
-Lets say our app needs access to an HTTP client so we can make requests
-to a website. A good library for this is clj-http. To add this as a
-dependency to our project we can simply update the dependencies section
-of our project.clj file to include it.
-
-~~~clojure
-:dependencies [[org.clojure/clojure "1.6.0"]
-               [clj-http "1.0.0"]]
-~~~
-
-Once we have updated our project.clj file, install any new dependencies
-with the following:
-
-`$ lein deps`
-
 ### Writing the code
 
 We'll see that Leiningen automatically created a source file for us located at:
@@ -131,10 +114,6 @@ Lets open this file in an editor. I've again added comments describing the file:
 We can run our project with the following:
 
 `$ lein run`
-
-> Note that if we have dependencies that aren't
-installed yet running this will attempt to download and install them, just
-like when we ran `$ lein deps` earlier.
 
 We should see the main function execute.
 
@@ -208,15 +187,59 @@ Macro
 nil
 ```
 
-We can also use the http client library we added to our project.clj file.
+### Adding external libraries
+
+Lets say you're working on a project and realize you need functionality
+that the core Clojure library doesn't provide. Leiningen makes it easy
+to add arbitrary dependencies that we might need access to.
+
+For starters lets say we need to make HTTP requests. The standard Clojure
+library doesn't provide this functionality, so we'll need a 3rd party
+library.
+
+
+#### Finding a library
+
+So to do this, we can just Google it. I searched for `clojure http client library` and got
+a result that looked promising.
+
+https://github.com/dakrone/clj-http
+
+Looking at the examples it looks like this library does what we need.
+
+#### Adding the library to our project
+
+If we look at the Github readme, we should see a section about release/dependency
+information. This section should have a string that looks like:
+
+`[clj-http "1.0.1"]`
+
+This is what we'll need to add to our `project.clj` file under dependencies.
+
+~~~clojure
+:dependencies [[org.clojure/clojure "1.6.0"]
+               [clj-http "1.0.1"]]
+~~~
+
+We can ensure that our update worked by running `$ lein deps` which will pull in
+any new dependencies to the project. Additionally running `$ lein run` or `$ lein repl`
+will do the same thing.
+
+> Any REPLs that are open will need to be restarted in order to gain access to new dependencies.
+
+#### Using the new library
+
+Now that we have the new HTTP library added as a dependency we can start using it in
+our project.
+
+The `Usage` section of `clj-http` shows us how we can use it in a REPL.
 
 ```
 your-app-name.core=> (require '[clj-http.client :as client])
 nil
 your-app-name.core=> (client/get "http://www.google.com")
+[giant http response]
 ```
-
-You should see an HTTP response.
 
 ### Writing/Running tests
 
