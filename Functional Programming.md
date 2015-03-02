@@ -2,15 +2,6 @@
 
 In functional programming, we build programs by writing functions that return values instead of using side-effects. Clojure progammers write the most part of their programs in a purely functional style and isolate state management in a few places using the concurrency mechanisms presented in the other session "Threading in Clojure".
 
-I don't think we need to reinvent much here. There are many good articles covering the basic data types and functions in Clojure. For example:
-
-* https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome
-* https://aphyr.com/posts/302-clojure-from-the-ground-up-basic-types
-* https://aphyr.com/posts/303-clojure-from-the-ground-up-functions
-* https://aphyr.com/posts/304-clojure-from-the-ground-up-sequences
-
-I think it is important to present all the examples using REPL input/output and illustrate clearly what was said in the previous section: we're interacting with a dynamic system. When we write `(defn my-func ...)` we're actually calling a function that creates another function and associate it to a var called `'#my-func` in the current namespace.
-
 ## First-Class Functions
 
 As we have seen in the previous section, Clojure provides all of the data types usually found in programming languages: numbers, strings, composites data structures... But Clojure also supports the function as a data type.
