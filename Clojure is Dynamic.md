@@ -77,7 +77,9 @@ user>
 
 ## Side-by-side code examples (from rosettacode)
 
-### Arithmetic mean: http://rosettacode.org/wiki/Averages/Arithmetic_mean#Clojure
+### Arithmetic mean
+
+http://rosettacode.org/wiki/Averages/Arithmetic_mean#Clojure
 
 Clojure:
 ```
@@ -98,4 +100,48 @@ Ruby:
 def mean(nums)
   nums.inject(0.0, :+) / nums.size
 end
+```
+
+### Letter frequency
+
+http://rosettacode.org/wiki/Letter_frequency#Clojure
+
+
+Clojure:
+```
+(defn letterfreq [s]
+  (->> s
+    (filter #(java.lang.Character/isLetter %))
+    (map #(java.lang.Character/toUpperCase %))
+    frequencies
+    (sort-by second >)))
+```
+
+Python:
+```
+import string
+
+def letterfreq(s):
+    results = {}
+    for ch in string.ascii_uppercase:
+        results[ch] = 0
+    for ch in s:
+        ch = ch.upper()
+        if ch.isupper():
+            results[ch] += 1
+    # NOTE: return value is not in freq order
+    return [(k, v) for (k, v) in results.items() if v > 0]
+```
+
+Ruby:
+```
+def letterfreq(file)
+  letters = 'a' .. 'z'
+  File.read(file) .
+       split(//) .
+       group_by {|letter| letter.downcase} .
+       select   {|key, val| letters.include? key} .
+       collect  {|key, val| [key, val.length]}
+end
+letterfreq(ARGV[0]).sort_by {|key, val| -val}.each {|pair| p pair}
 ```
