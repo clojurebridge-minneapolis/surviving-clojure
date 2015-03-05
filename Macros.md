@@ -3,10 +3,10 @@
 ## What are macros?
 
 Lisps embody the idea of code is data, data is code.
-Macros can be thought of as functions that alter
-the behavior of your code at compile time.
 
-TODO fixup
+If code is data that means we should be able to manipulate it
+just as easily as we can manipulate normal data. To do this
+we can use macros.
 
 ## Exploring the threading macro
 
@@ -83,11 +83,30 @@ We need to convert our forms into a list with the apostrophe so it
 doesn't get evaluated. This is code as data in action!
 Notice that macroexpand resulted in the obvious approach we took earlier?
 
-## Advantages of macros
 
 ## Limitations of macros
 
 Since macros execute at compile time they cannot be passed around
 like functions can.
 
-TODO flesh out more
+For example, lets say we wanted to perform a reduce on a vector of booleans.
+One might expect the following to work:
+
+~~~clojure
+(reduce and [true false true])
+~~~
+
+But if we try to evaluate it in a repl we get:
+
+```
+CompilerException java.lang.RuntimeException: Can't take value of a macro: #'clojure.core/and, compiling:(NO_SOURCE_PATH:1:1)
+```
+
+This is because `and` is a macro and as such we can't pass it to a function as a parameter. Instead
+we need to build a function...
+
+~~~clojure
+(reduce (fn [a b] (and a b)) [true false true])
+~~~
+
+Which gets us what we want.
