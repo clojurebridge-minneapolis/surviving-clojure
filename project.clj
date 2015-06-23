@@ -2,6 +2,7 @@
   :description "surviving"
 
   :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
+                 ;; [org.clojure/tools.nrepl "0.2.8-SNAPSHOT"]
                  [org.clojure/tools.nrepl "0.2.7"]
                  [instaparse "1.3.5"]
                  [rhizome "0.2.4"]
